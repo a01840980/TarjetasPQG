@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Tarjeta 3D</title>
+<style>
+  /* Centrado del contenedor en la pantalla */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  /* El escenario 3D (Perspectiva) */
+  .tarjeta-container {
+    width: 650px; /* Puedes cambiar el ancho aquí si tu diseño es más largo */
+    height: 650px; /* Puedes cambiar el alto aquí */
+    perspective: 1000px; /* Efecto de profundidad 3D */
+  }
+
+  /* El objeto tarjeta que va a girar */
+  .tarjeta {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 15px;
+  }
+
+  /* Animación al pasar el mouse (Hover) */
+  .tarjeta-container:hover .tarjeta {
+    transform: rotateY(180deg);
+  }
+
+  /* Estilo común para ambas caras */
+  .cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde la cara opuesta al girar */
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* CARA FRONTAL (Usa tu imagen 5.jpg) */
+  .frente {
+    background-image: url('5.jpg');
+  }
+
+  /* CARA TRASERA (Usa tu imagen 4.jpg) */
+  .atras {
+    background-image: url('4.jpg');
+    transform: rotateY(180deg); /* Empieza volteada para el efecto */
+  }
+</style>
+</head>
+<body>
+
+<div class="tarjeta-container">
+  <div class="tarjeta">
+    
+    <div class="cara frente">
+      </div>
+    
+    <div class="cara atras">
+      </div>
+
+  </div>
+</div>
+
+</body>
